@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Preferences } from '@capacitor/preferences';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ export class RegisterPage implements OnInit {
   password : string | undefined
   confirmPassword : string | undefined
 
-  constructor() { }
+  constructor(public router : Router) { }
 
   async register() {
     if (this.password !== this.confirmPassword) {
@@ -25,7 +26,14 @@ export class RegisterPage implements OnInit {
     });
 
     alert('Registration successful!');
+
+    this.toLogin()
   }
+
+  toLogin(){
+    this.router.navigateByUrl('login')
+  }
+
   ngOnInit() {
   }
 
