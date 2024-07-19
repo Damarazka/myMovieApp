@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
-
   private apiKey: string = 'ee8f42ee0d5dbb7621efd06b4aa3f961';
   private baseUrl: string = 'https://api.themoviedb.org/3';
 
@@ -19,7 +19,7 @@ export class MovieService {
     return this.http.get(`${this.baseUrl}/movie/${movieId}?api_key=${this.apiKey}`);
   }
 
-    searchMovies(query: string): Observable<any> {
+  searchMovies(query: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/search/movie?query=${query}&api_key=${this.apiKey}`);
   }
 }

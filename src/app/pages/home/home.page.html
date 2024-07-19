@@ -1,8 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Movie App
-    </ion-title>
+    <ion-item lines="none">
+      <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="searchMovies()"></ion-searchbar>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-title>Movie App</ion-title>
+    </ion-item>
   </ion-toolbar>
 </ion-header>
 
