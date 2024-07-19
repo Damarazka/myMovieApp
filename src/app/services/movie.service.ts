@@ -19,7 +19,7 @@ export class MovieService {
     return this.http.get(`${this.baseUrl}/movie/${movieId}?api_key=${this.apiKey}`);
   }
 
-  searchMovies(query: string): Observable<any> {
+    searchMovies(query: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/search/movie?query=${query}&api_key=${this.apiKey}`);
   }
 }

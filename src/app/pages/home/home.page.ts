@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,13 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  movies: any[] = [];
 
+  constructor(private movieService: MovieService) {}
+
+  ngOnInit() {
+    this.movieService.getPopularMovies().subscribe(response => {
+      this.movies = response.results;
+    });
+  }
 }
